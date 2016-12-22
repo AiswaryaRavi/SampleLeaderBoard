@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 @Data
 @Entity
-@Table(name = "categories")
+@Table(name = "quizes")
 
 public class Quiz {
 	

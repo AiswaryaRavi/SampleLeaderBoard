@@ -40,3 +40,4 @@ public class StudentProjectSprint {
 	  private SeedStatus statusId=1;
 	  
 }
+
