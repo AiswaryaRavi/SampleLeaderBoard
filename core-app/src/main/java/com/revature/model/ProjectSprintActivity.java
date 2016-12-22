@@ -29,7 +29,7 @@ public class ProjectSprintActivity {
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_SPRINT_ID",nullable=false)
-	private ProjectSprint projectSprintId;
+	private ProjectSprint projectSprint;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
 	private Video video;

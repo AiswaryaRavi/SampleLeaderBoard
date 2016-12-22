@@ -1,6 +1,7 @@
 package com.revature.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +34,7 @@ public class StudentProject {
 	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
-	private Project project;
+	private List<Project> project;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
