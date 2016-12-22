@@ -45,8 +45,6 @@ public class ProjectSprintActivity {
 	private String offlineActivity;
 	@Column(nullable=false)
 	private String name;
-	@Column(name="DURATION_IN_MINUTES")
-	private Integer durationInMinutes;
 	@Column(name = "SKILL_POINTS")
 	private Integer skillPoints;
 
