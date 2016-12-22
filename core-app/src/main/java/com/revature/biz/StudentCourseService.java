@@ -23,6 +23,7 @@ public interface StudentCourseService {
 	   List<StudentCourse> getAllStudentCourseActivityPointsById(Integer studentId) throws BusinessServiceException;
 	   List<StudentCourse> getAllStudentCourseHoursSpent(Integer studentId) throws BusinessServiceException;
 	   List<StudentCourse> getAllStudentCoursePercentage(Integer studentId) throws BusinessServiceException;
-	   List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws BusinessServiceException;
+	   List<StudentCourse> getAllStudentCourseDetails(String courseName) throws BusinessServiceException;
+	   List<StudentCourse> getAllStudentCourseActivityDetails(String courseName) throws BusinessServiceException;
 
 }

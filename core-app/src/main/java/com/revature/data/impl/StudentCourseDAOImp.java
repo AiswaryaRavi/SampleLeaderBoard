@@ -59,7 +59,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 	  public List<StudentCourse> getAllStudentCourseSkillPointsById(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_skill_points WHERE STUDENT_ID=?"+studentId);
+		      StringBuilder sb = new StringBuilder("SELECT NAME,skill_points FROM vw_student_course_skill_points WHERE STUDENT_ID="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -86,7 +86,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 	  public List<StudentCourse> getAllStudentCourseActivityPointsById(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_activity_points where ID=?"+studentId);
+		      StringBuilder sb = new StringBuilder("SELECT enrollment_points,completion_points FROM vw_student_course_activity_points WHERE ID="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -100,7 +100,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 	  public List<StudentCourse> getAllStudentCourseHoursSpent(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_hours_spent where STUDENT_ID="+studentId);
+		      StringBuilder sb = new StringBuilder("SELECT NAME,HOURS_SPENT FROM vw_student_course_hours_spent WHERE STUDENT_ID="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -113,7 +113,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 	  public List<StudentCourse> getAllStudentCoursePercentage(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_percentage_calculation WHERE student="+studentId);
+		      StringBuilder sb = new StringBuilder("SELECT NAME,percentage FROM vw_student_course_percentage_calculation WHERE student="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -123,10 +123,23 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    return studentCourses;
 		  }
 	  @Override
-	  public List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws DataServiceException {
+	  public List<StudentCourse> getAllStudentCourseDetails(String courseName) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM VW_STUDENT_COURSE_DETAILS WHERE student="+studentId+" AND NAME = '" + courseName+"'");
+		      StringBuilder sb = new StringBuilder("SELECT * FROM VW_STUDENT_COURSE_DETAILS WHERE COURSE_NAME = '" + courseName+"'");
+		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      logger.info("Student courses data retrieval success..");
+		    } catch (DataAccessException e) {
+		      logger.error(e.getMessage(), e);
+		      throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		    }
+		    return studentCourses;
+		  }
+	  @Override
+	  public List<StudentCourse> getAllStudentCourseActivityDetails(String courseName) throws DataServiceException {
+		    List<StudentCourse> studentCourses = null;
+		    try {
+		      StringBuilder sb = new StringBuilder("SELECT ACTIVITY_NAME FROM VW_STUDENT_COURSE_ACTIVITY_DETAILS WHERE COURSE_NAME = '" + courseName+"'");
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {

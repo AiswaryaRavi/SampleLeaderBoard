@@ -115,10 +115,10 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 		return studentCourses;
 	}
 	@Override
-	public List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws BusinessServiceException {
+	public List<StudentCourse> getAllStudentCourseDetails(String courseName) throws BusinessServiceException {
 		List<StudentCourse> studentCourses = null;
 		try {
-			studentCourses = studentcourseDAO.getAllStudentCourseDetails(studentId,courseName);
+			studentCourses = studentcourseDAO.getAllStudentCourseDetails(courseName);
 			logger.info("student courses retrieved successfully");
 		} catch (DataServiceException e) {
 			logger.error(e.getMessage(), e);
@@ -126,5 +126,18 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 		}
 		return studentCourses;
 	}
+	@Override
+	public List<StudentCourse> getAllStudentCourseActivityDetails(String courseName) throws BusinessServiceException {
+		List<StudentCourse> studentCourses = null;
+		try {
+			studentCourses = studentcourseDAO.getAllStudentCourseActivityDetails(courseName);
+			logger.info("student courses retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentCourses;
+	}
+	
 
 }
