@@ -25,6 +25,6 @@ public class Student {
 	  private String email;
 	  private Long phone;
 	  @Column(name = "IS_ACTIVE")
-	  private Boolean isActive;
+	  private Boolean isActive=true;
 
 }

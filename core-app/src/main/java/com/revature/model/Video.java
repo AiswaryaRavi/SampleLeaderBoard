@@ -22,5 +22,5 @@ public class Video {
 	 @Column(name = "TRANSCRIPT_TEXT")
 	 private String transcript;
 	 @Column(name = "IS_ACTIVE")
-	  private Boolean isActive;
+	  private Boolean isActive=true;
 }

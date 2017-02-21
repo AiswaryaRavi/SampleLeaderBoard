@@ -35,7 +35,7 @@ public class Quiz {
 	  @Column(name = "IS_ANSWER_DISPLAY")
 	  private Boolean isAnswerDisplay;
 	  @Column(name = "IS_ACTIVE")
-	  private Boolean isActive;
+	  private Boolean isActive=true;
 
 
 }

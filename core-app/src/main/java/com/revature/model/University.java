@@ -18,7 +18,7 @@ public class University {
 	 @Column(unique=true)
 	  private String name;
 	  @Column(name = "IS_ACTIVE")
-	  private Boolean isActive;
+	  private Boolean isActive=true;
 
 
 }
