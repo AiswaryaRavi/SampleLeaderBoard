@@ -12,22 +12,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "student_projects")
+@Table(name = "student_projects", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "STUDENT_ID", "PROJECT_ID" }) })
 
 public class StudentProject {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_ID",nullable=false)
+	@JoinColumn(name = "STUDENT_ID", nullable = false)
 	private Student studentId;
 	@ManyToOne
-	@JoinColumn(name = "PROJECT_ID",nullable=false)
+	@JoinColumn(name = "PROJECT_ID", nullable = false)
 	private Project projectId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
@@ -36,7 +38,7 @@ public class StudentProject {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID",nullable=false)
+	@JoinColumn(name = "STATUS_ID", nullable = false)
 	private SeedStatus statusId;
 
 }

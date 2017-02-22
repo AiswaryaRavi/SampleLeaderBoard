@@ -18,15 +18,15 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(unique = true,nullable=false)
+	@Column(nullable = false)
 	private String name;
 	@ManyToOne
-	@JoinColumn(name = "UNIVERSITY_ID",nullable=false)
+	@JoinColumn(name = "UNIVERSITY_ID", nullable = false)
 	private University universityId;
-	@Column(unique = true,nullable=false)
+	@Column(unique = true, nullable = false)
 	private String email;
 	private Long phone;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE", nullable = false)
 	private Boolean isActive = true;
 
 }

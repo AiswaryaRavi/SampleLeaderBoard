@@ -16,7 +16,7 @@ import lombok.Data;
 @Data
 
 @Entity
-@Table(name = "student_projects")
+@Table(name = "student_audit_details")
 public class StudentAuditDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +29,5 @@ public class StudentAuditDetails {
 	@Column(name = "ACTIVITY_TIMESTAMP",nullable=false)
 	private Timestamp activityTimestamp;
 	@Column(name = "IS_SUCCESS",nullable=false)
-	private Boolean isActive = true;
+	private Boolean isSuccess = true;
 }
