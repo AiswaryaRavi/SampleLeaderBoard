@@ -1,6 +1,6 @@
 package com.revature.model;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class StudentProjectSprintActivities {
 	 private Date completedOn;
 	  @ManyToOne
 	    @JoinColumn(name = "STATUS_ID")
-	  private SeedStatus statusId=1;
+	  private SeedStatus statusId;
 	
 
 }

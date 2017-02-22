@@ -22,8 +22,6 @@ public class StudentAccount {
 	@OneToOne
 	@JoinColumn(name = "STUDENT_ID", unique = true)
 	private Student studentId;
-
 	private String username;
-
 	private String password;
 }
