@@ -22,12 +22,12 @@ public class StudentAuditDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_ID")
+	@JoinColumn(name = "STUDENT_ID",nullable=false)
 	private Student studentId;
-	@Column(name = "LOGIN_ACTIVITY")
+	@Column(name = "LOGIN_ACTIVITY",nullable=false)
 	private String loginActivity;
-	@Column(name = "ACTIVITY_TIMESTAMP")
+	@Column(name = "ACTIVITY_TIMESTAMP",nullable=false)
 	private Timestamp activityTimestamp;
-	@Column(name = "IS_SUCCESS")
+	@Column(name = "IS_SUCCESS",nullable=false)
 	private Boolean isActive = true;
 }

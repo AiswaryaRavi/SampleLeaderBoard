@@ -24,10 +24,10 @@ public class StudentQuiz {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_ID")
+	@JoinColumn(name = "STUDENT_ID",nullable=false)
 	private Student studentId;
 	@ManyToOne
-	@JoinColumn(name = "QUIZ_ID")
+	@JoinColumn(name = "QUIZ_ID",nullable=false)
 	private Quiz quizId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
@@ -36,7 +36,7 @@ public class StudentQuiz {
 	@Temporal(TemporalType.TIME)
 	private Time completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID",nullable=false)
 	private SeedStatus statusId;
 
 }

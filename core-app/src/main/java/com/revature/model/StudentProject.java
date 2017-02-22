@@ -24,10 +24,10 @@ public class StudentProject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "STUDENT_ID")
+	@JoinColumn(name = "STUDENT_ID",nullable=false)
 	private Student studentId;
 	@ManyToOne
-	@JoinColumn(name = "PROJECT_ID")
+	@JoinColumn(name = "PROJECT_ID",nullable=false)
 	private Project projectId;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
@@ -36,7 +36,7 @@ public class StudentProject {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID")
+	@JoinColumn(name = "STATUS_ID",nullable=false)
 	private SeedStatus statusId;
 
 }

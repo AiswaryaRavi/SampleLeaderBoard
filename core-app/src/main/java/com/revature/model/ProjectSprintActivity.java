@@ -25,7 +25,7 @@ public class ProjectSprintActivity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
-	@JoinColumn(name = "PROJECT_SPRINT_ID")
+	@JoinColumn(name = "PROJECT_SPRINT_ID",nullable=false)
 	private ProjectSprint projectSprintId;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
@@ -40,8 +40,11 @@ public class ProjectSprintActivity {
 	private String onlineActivity;
 	@Column(name = "OFFLINE_ACTIVITY")
 	private String offlineActivity;
+	@Column(nullable=false)
 	private String name;
-	@Column(name = "IS_ACTIVE")
-	private Boolean isActive = true;
+	@Column(name="DURATION_IN_MINUTES")
+	private Integer durationInMinutes;
+	@Column(name = "SKILL_POINTS",nullable=false)
+	private Integer skillPoints;
 
 }
