@@ -34,7 +34,7 @@ public class StudentProject {
 	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID", nullable = false)
-	private List<Project> project;
+	private Project project;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;

@@ -29,7 +29,7 @@ public class StudentCourse {
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID",nullable=false)
-	private List<Course> course;
+	private Course course;
 	@ManyToOne()
 	@JoinColumn(name = "STUDENT_ID",nullable=false)
 	private Student student;

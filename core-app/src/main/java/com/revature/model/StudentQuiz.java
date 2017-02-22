@@ -32,7 +32,7 @@ public class StudentQuiz {
 	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "QUIZ_ID",nullable=false)
-	private List<Quiz> quiz;
+	private Quiz quiz;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time startedOn;
