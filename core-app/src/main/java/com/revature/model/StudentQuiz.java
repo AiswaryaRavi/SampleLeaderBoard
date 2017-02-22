@@ -35,6 +35,8 @@ public class StudentQuiz {
 	@Column(name = "COMPLETED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time completedOn;
+	@Column(nullable=false)
+	private Integer score;
 	@ManyToOne
 	@JoinColumn(name = "STATUS_ID",nullable=false)
 	private SeedStatus statusId;
