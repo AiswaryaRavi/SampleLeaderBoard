@@ -1,4 +1,5 @@
 package com.revature.model;
+import java.sql.Date;
 import java.sql.Time;
 
 import javax.persistence.Column;
@@ -31,10 +32,10 @@ public class StudentProjectSprintActivities {
 	  private ProjectSprintActivity projectSprintActivityId;
 	  @Column(name = "STARTED_ON")
 	  @Temporal(TemporalType.DATE)
-	 private Time startedOn;
+	 private Date startedOn;
 	  @Column(name ="COMPLETED_ON")
 	  @Temporal(TemporalType.DATE)
-	 private Time completedOn;
+	 private Date completedOn;
 	  @ManyToOne
 	    @JoinColumn(name = "STATUS_ID")
 	  private SeedStatus statusId=1;
