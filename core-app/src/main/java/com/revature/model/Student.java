@@ -15,6 +15,9 @@ import lombok.Data;
 @Entity
 @Table(name = "students")
 public class Student {
+	private Student(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -22,11 +25,11 @@ public class Student {
 	private String name;
 	@ManyToOne
 	@JoinColumn(name = "UNIVERSITY_ID", nullable = false)
-	private University universityId;
+	private University university;
 	@Column(unique = true, nullable = false)
 	private String email;
 	private Long phone;
-	@Column(name = "IS_ACTIVE", nullable = false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 }

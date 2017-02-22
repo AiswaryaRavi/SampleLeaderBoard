@@ -18,16 +18,19 @@ import lombok.Data;
 @Entity
 @Table(name = "student_audit_details")
 public class StudentAuditDetails {
+	private StudentAuditDetails(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID",nullable=false)
-	private Student studentId;
+	private Student student;
 	@Column(name = "LOGIN_ACTIVITY",nullable=false)
 	private String loginActivity;
 	@Column(name = "ACTIVITY_TIMESTAMP",nullable=false)
 	private Timestamp activityTimestamp;
-	@Column(name = "IS_SUCCESS",nullable=false)
+	@Column(name = "IS_SUCCESS")
 	private Boolean isSuccess = true;
 }

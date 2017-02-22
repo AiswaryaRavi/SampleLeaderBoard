@@ -20,15 +20,18 @@ import lombok.Data;
 @Table(name = "student_project_sprints")
 
 public class StudentProjectSprint {
+	private StudentProjectSprint(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_PROJECT_ID",nullable=false)
-	private StudentProject studentProjectId;
+	private StudentProject studentProject;
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_SPRINT_ID",nullable=false)
-	private ProjectSprint projectSprintId;
+	private ProjectSprint projectSprint;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.DATE)
 	private Date startedOn;
@@ -36,7 +39,7 @@ public class StudentProjectSprint {
 	@Temporal(TemporalType.DATE)
 	private Date completedOn;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID",nullable=false)
+	@JoinColumn(name = "STATUS_ID")
 	private SeedStatus statusId;
 
 }

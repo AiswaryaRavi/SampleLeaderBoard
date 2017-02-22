@@ -17,15 +17,18 @@ import lombok.Data;
 @Table(name = "project_sprints", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "PROJECT_ID", "SPRINT_NAME" }) })
 public class ProjectSprint {
+	private ProjectSprint(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_ID",nullable=false)
-	private Project projectId;
+	private Project project;
 	@Column(name = "SPRINT_NAME",nullable=false)
 	private String sprintName;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 }

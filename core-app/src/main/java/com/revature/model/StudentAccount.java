@@ -16,12 +16,15 @@ import lombok.Data;
 @Table(name = "student_account")
 
 public class StudentAccount {
+	private StudentAccount(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@OneToOne
 	@JoinColumn(name = "STUDENT_ID", unique = true,nullable=false)
-	private Student studentId;
+	private Student student;
 	@Column(nullable=false)
 	private String username;
 	@Column(nullable=false)

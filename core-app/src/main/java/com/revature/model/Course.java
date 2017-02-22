@@ -15,15 +15,18 @@ import lombok.Data;
 @Entity
 @Table(name = "courses")
 public class Course {
+	private Course(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "CATEGORY_ID",nullable=false)
-	private Category categoryId;
+	private Category category;
 	@ManyToOne()
 	@JoinColumn(name = "LEVEL_ID",nullable=false)
-	private Level levelId;
+	private Level level;
 	@Column(unique = true,nullable=false)
 	private String name;
 	@Column(nullable=false)
@@ -32,7 +35,7 @@ public class Course {
 	private Integer enrollmentPoints;
 	@Column(name = "COMPLETION_POINTS",nullable=false)
 	private Integer completionPoints;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 }

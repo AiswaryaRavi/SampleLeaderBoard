@@ -1,6 +1,7 @@
 package com.revature.model;
 
 import java.sql.Time;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,15 +21,18 @@ import lombok.Data;
 @Table(name = "student_quizes")
 
 public class StudentQuiz {
+	private StudentQuiz(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "STUDENT_ID",nullable=false)
-	private Student studentId;
+	private Student student;
 	@ManyToOne
 	@JoinColumn(name = "QUIZ_ID",nullable=false)
-	private Quiz quizId;
+	private List<Quiz> quiz;
 	@Column(name = "STARTED_ON")
 	@Temporal(TemporalType.TIME)
 	private Time startedOn;
@@ -38,7 +42,7 @@ public class StudentQuiz {
 	@Column(nullable=false)
 	private Integer score;
 	@ManyToOne
-	@JoinColumn(name = "STATUS_ID",nullable=false)
+	@JoinColumn(name = "STATUS_ID")
 	private SeedStatus statusId;
 
 }

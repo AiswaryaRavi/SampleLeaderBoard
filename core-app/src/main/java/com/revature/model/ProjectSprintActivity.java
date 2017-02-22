@@ -21,6 +21,9 @@ import lombok.Data;
 		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "ONLINE_ACTIVITY" }),
 		@UniqueConstraint(columnNames = { "PROJECT_SPRINT_ID", "OFFLINE_ACTIVITY" }) })
 public class ProjectSprintActivity {
+	private ProjectSprintActivity(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -29,13 +32,13 @@ public class ProjectSprintActivity {
 	private ProjectSprint projectSprintId;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
-	private Video videoId;
+	private Video video;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
+	private Course course;
 	@ManyToOne()
 	@JoinColumn(name = "QUIZ_ID")
-	private Quiz quizId;
+	private Quiz quiz;
 	@Column(name = "ONLINE_ACTIVITY")
 	private String onlineActivity;
 	@Column(name = "OFFLINE_ACTIVITY")
@@ -44,7 +47,7 @@ public class ProjectSprintActivity {
 	private String name;
 	@Column(name="DURATION_IN_MINUTES")
 	private Integer durationInMinutes;
-	@Column(name = "SKILL_POINTS",nullable=false)
+	@Column(name = "SKILL_POINTS")
 	private Integer skillPoints;
 
 }

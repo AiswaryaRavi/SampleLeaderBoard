@@ -14,6 +14,9 @@ import lombok.Data;
 @Table(name = "videos")
 
 public class Video {
+	private Video(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -23,6 +26,6 @@ public class Video {
 	private String url;
 	@Column(name = "TRANSCRIPT_TEXT",nullable=false)
 	private String transcript;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 }

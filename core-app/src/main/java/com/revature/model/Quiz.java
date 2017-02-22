@@ -16,16 +16,19 @@ import lombok.Data;
 @Table(name = "quizes")
 
 public class Quiz {
+	private Quiz(){
+		
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "CATEGORY_ID",nullable=false)
-	private Category categoryId;
+	private Category category;
 	@ManyToOne
 	@JoinColumn(name = "LEVEL_ID",nullable=false)
-	private Level levelId;
+	private Level level;
 	@Column(unique = true,nullable=false)
 	private String name;
 	@Column(name = "DURATION_IN_MINUTES",nullable=false)
@@ -36,7 +39,7 @@ public class Quiz {
 	private Integer maxAttempts = 1;
 	@Column(name = "IS_ANSWER_DISPLAY",nullable=false)
 	private Boolean isAnswerDisplay = false;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 }

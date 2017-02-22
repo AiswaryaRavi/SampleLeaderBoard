@@ -14,12 +14,15 @@ import lombok.Data;
 @Table(name = "universities")
 
 public class University {
+	private University(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@Column(unique = true,nullable=false)
 	private String name;
-	@Column(name = "IS_ACTIVE",nullable=false)
+	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
 }
