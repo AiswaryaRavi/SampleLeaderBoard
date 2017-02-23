@@ -12,6 +12,6 @@ public interface DataRetriver {
    * @return the requested data
    * @throws DataAccessException if query format error
    */
-  public <E> List<E> retrieveByHQL(String query) throws DataAccessException;
+  public <E> List<E> retrieveBySQL(String query) throws DataAccessException;
 
 }

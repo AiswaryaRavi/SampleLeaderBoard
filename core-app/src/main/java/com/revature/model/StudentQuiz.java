@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -34,10 +34,10 @@ public class StudentQuiz {
 	@JoinColumn(name = "QUIZ_ID",nullable=false)
 	private Quiz quiz;
 	@Column(name = "STARTED_ON")
-	@Temporal(TemporalType.TIME)
+	//@Temporal(TemporalType.TIME)
 	private Time startedOn;
 	@Column(name = "COMPLETED_ON")
-	@Temporal(TemporalType.TIME)
+	//@Temporal(TemporalType.TIME)
 	private Time completedOn;
 	@Column(nullable=false)
 	private Integer score;
