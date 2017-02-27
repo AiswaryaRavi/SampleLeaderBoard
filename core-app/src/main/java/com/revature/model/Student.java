@@ -28,6 +28,8 @@ public class Student {
 	private University university;
 	@Column(unique = true, nullable = false)
 	private String email;
+	@Column(nullable = false)
+	private String department;
 	private Long phone;
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;

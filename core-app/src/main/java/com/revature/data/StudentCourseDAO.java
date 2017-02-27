@@ -17,9 +17,13 @@ public interface StudentCourseDAO {
 
   public List<StudentCourse> getAllStudentCourses() throws DataServiceException;
   public List<StudentCourse> getAllStudentCourseSkillPoints() throws DataServiceException;
+  public List<StudentCourse> getAllStudentCourseSkillPointsById(Integer id) throws DataServiceException;
   public List<StudentCourse> getAllStudentCourseActivityPoints() throws DataServiceException;
-  public List<StudentCourse> getAllStudentCourseHoursSpent() throws DataServiceException;
-  public List<StudentCourse> getAllStudentCoursePercentage() throws DataServiceException;
+  public List<StudentCourse> getAllStudentCourseActivityPointsById(Integer studentId) throws DataServiceException;
+  public List<StudentCourse> getAllStudentCourseHoursSpent(Integer studentId) throws DataServiceException;
+  public List<StudentCourse> getAllStudentCoursePercentage(Integer studentId) throws DataServiceException;
+  public List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws DataServiceException;
+
 
 
 

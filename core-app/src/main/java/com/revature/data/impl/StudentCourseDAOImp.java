@@ -55,6 +55,19 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    }
 		    return studentCourses;
 		  }
+	  @Override
+	  public List<StudentCourse> getAllStudentCourseSkillPointsById(Integer studentId) throws DataServiceException {
+		    List<StudentCourse> studentCourses = null;
+		    try {
+		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_skill_points WHERE STUDENT_ID=?"+studentId);
+		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      logger.info("Student courses data retrieval success..");
+		    } catch (DataAccessException e) {
+		      logger.error(e.getMessage(), e);
+		      throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		    }
+		    return studentCourses;
+		  }
 	  
 	  @Override
 	  public List<StudentCourse> getAllStudentCourseActivityPoints() throws DataServiceException {
@@ -69,12 +82,25 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    }
 		    return studentCourses;
 		  }
+	  @Override
+	  public List<StudentCourse> getAllStudentCourseActivityPointsById(Integer studentId) throws DataServiceException {
+		    List<StudentCourse> studentCourses = null;
+		    try {
+		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_activity_points where ID=?"+studentId);
+		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      logger.info("Student courses data retrieval success..");
+		    } catch (DataAccessException e) {
+		      logger.error(e.getMessage(), e);
+		      throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		    }
+		    return studentCourses;
+		  }
 	  
 	  @Override
-	  public List<StudentCourse> getAllStudentCourseHoursSpent() throws DataServiceException {
+	  public List<StudentCourse> getAllStudentCourseHoursSpent(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_hours_spent");
+		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_hours_spent where STUDENT_ID="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -84,10 +110,10 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    return studentCourses;
 		  }
 	  @Override
-	  public List<StudentCourse> getAllStudentCoursePercentage() throws DataServiceException {
+	  public List<StudentCourse> getAllStudentCoursePercentage(Integer studentId) throws DataServiceException {
 		    List<StudentCourse> studentCourses = null;
 		    try {
-		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_percentage_calculation");
+		      StringBuilder sb = new StringBuilder("SELECT * FROM vw_student_course_percentage_calculation WHERE student="+studentId);
 		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
@@ -96,6 +122,21 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    }
 		    return studentCourses;
 		  }
+	  @Override
+	  public List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws DataServiceException {
+		    List<StudentCourse> studentCourses = null;
+		    try {
+		      StringBuilder sb = new StringBuilder("SELECT * FROM VW_STUDENT_COURSE_DETAILS WHERE student="+studentId+" AND NAME = '" + courseName+"'");
+		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      logger.info("Student courses data retrieval success..");
+		    } catch (DataAccessException e) {
+		      logger.error(e.getMessage(), e);
+		      throw new DataServiceException(DataUtils.getPropertyMessage("data_retrieval_fail"), e);
+		    }
+		    return studentCourses;
+		  }
+	  
+	  
 
 
 }

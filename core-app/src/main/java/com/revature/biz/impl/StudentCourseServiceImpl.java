@@ -45,6 +45,34 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 		return studentCourses;
 
 	}
+	@Override
+	public List<StudentCourse> getAllStudentCourseSkillPointsById(Integer studentId) throws BusinessServiceException {
+		List<StudentCourse> studentCourses = null;
+		try {
+			studentCourses = studentcourseDAO.getAllStudentCourseSkillPointsById(studentId);
+			logger.info("student courses retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentCourses;
+
+	}
+	@Override
+	public List<StudentCourse> getAllStudentCourseActivityPointsById(Integer studentId) throws BusinessServiceException {
+		List<StudentCourse> studentCourses = null;
+		try {
+			studentCourses = studentcourseDAO.getAllStudentCourseActivityPointsById(studentId);
+			logger.info("student courses retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentCourses;
+
+	}
+
+
 
 	@Override
 	public List<StudentCourse> getAllStudentCourseActivityPoints() throws BusinessServiceException {
@@ -61,10 +89,10 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 	}
 
 	@Override
-	public List<StudentCourse> getAllStudentCourseHoursSpent() throws BusinessServiceException {
+	public List<StudentCourse> getAllStudentCourseHoursSpent(Integer studentId) throws BusinessServiceException {
 		List<StudentCourse> studentCourses = null;
 		try {
-			studentCourses = studentcourseDAO.getAllStudentCourseHoursSpent();
+			studentCourses = studentcourseDAO.getAllStudentCourseHoursSpent(studentId);
 			logger.info("student courses retrieved successfully");
 		} catch (DataServiceException e) {
 			logger.error(e.getMessage(), e);
@@ -75,10 +103,22 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 	}
 
 	@Override
-	public List<StudentCourse> getAllStudentCoursePercentage() throws BusinessServiceException {
+	public List<StudentCourse> getAllStudentCoursePercentage(Integer studentId) throws BusinessServiceException {
 		List<StudentCourse> studentCourses = null;
 		try {
-			studentCourses = studentcourseDAO.getAllStudentCoursePercentage();
+			studentCourses = studentcourseDAO.getAllStudentCoursePercentage(studentId);
+			logger.info("student courses retrieved successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentCourses;
+	}
+	@Override
+	public List<StudentCourse> getAllStudentCourseDetails(Integer studentId,String courseName) throws BusinessServiceException {
+		List<StudentCourse> studentCourses = null;
+		try {
+			studentCourses = studentcourseDAO.getAllStudentCourseDetails(studentId,courseName);
 			logger.info("student courses retrieved successfully");
 		} catch (DataServiceException e) {
 			logger.error(e.getMessage(), e);
