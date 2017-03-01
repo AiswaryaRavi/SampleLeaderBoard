@@ -13,5 +13,7 @@ public interface DataRetriver {
    * @throws DataAccessException if query format error
    */
   public <E> List<E> retrieveBySQL(String query) throws DataAccessException;
+  public <E> List<E> retrieveBySQLJSON(String query) throws DataAccessException;
+
 
 }

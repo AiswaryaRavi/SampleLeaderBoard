@@ -127,7 +127,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    List<StudentCourse> studentCourses = null;
 		    try {
 		      StringBuilder sb = new StringBuilder("SELECT * FROM VW_STUDENT_COURSE_DETAILS WHERE COURSE_NAME = '" + courseName+"'");
-		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      studentCourses = dataRetriver.retrieveBySQLJSON(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
 		      logger.error(e.getMessage(), e);
@@ -140,7 +140,7 @@ public class StudentCourseDAOImp implements StudentCourseDAO{
 		    List<StudentCourse> studentCourses = null;
 		    try {
 		      StringBuilder sb = new StringBuilder("SELECT ACTIVITY_NAME FROM VW_STUDENT_COURSE_ACTIVITY_DETAILS WHERE COURSE_NAME = '" + courseName+"'");
-		      studentCourses = dataRetriver.retrieveBySQL(sb.toString());
+		      studentCourses = dataRetriver.retrieveBySQLJSON(sb.toString());
 		      logger.info("Student courses data retrieval success..");
 		    } catch (DataAccessException e) {
 		      logger.error(e.getMessage(), e);
