@@ -31,10 +31,10 @@ public class StudentAccounController {
 		 List<StudentAccount> studentAccount = null;
 
 		try {
-			logger.info("Getting the categories data...");
+			logger.info("Getting the login data...");
 			studentAccount=studentAccountService.Login(emailId, password);
 
-				logger.info("categories data retrieval success1.");
+				logger.info("login data retrieval success1.");
 		} catch (BusinessServiceException e) {
 			logger.error(e.getMessage(), e);
 			throw new InvalidInputException(e.getMessage(), e);
