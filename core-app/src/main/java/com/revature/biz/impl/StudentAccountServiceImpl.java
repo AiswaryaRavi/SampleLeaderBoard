@@ -11,10 +11,8 @@ import com.revature.biz.exception.BusinessServiceException;
 
 import com.revature.data.StudentAccountDAO;
 import com.revature.data.exception.DataServiceException;
-import com.revature.model.Category;
 import com.revature.model.StudentAccount;
-
-
+import com.revature.model.dto.StudentAccountDTO;
 
 @Service
 
@@ -22,13 +20,13 @@ public class StudentAccountServiceImpl implements StudentAccountService {
 	private static Logger logger = Logger.getLogger(CategoryServiceImpl.class);
 
 	@Autowired
-	private StudentAccountDAO studentaccountDAO;
+	private StudentAccountDAO studentAccountDAO;
 
 	@Override
 	public List<StudentAccount> Login(String emailId, String password) throws BusinessServiceException {
-		 List<StudentAccount> studentAccount = null;
+		List<StudentAccount> studentAccount = null;
 		try {
-			studentAccount=studentaccountDAO.getId(emailId, password);
+			studentAccount = studentAccountDAO.getId(emailId, password);
 			logger.info("Data retrieved successfully");
 		} catch (DataServiceException e) {
 			logger.error(e.getMessage(), e);
@@ -36,6 +34,34 @@ public class StudentAccountServiceImpl implements StudentAccountService {
 		}
 		return studentAccount;
 
+	}
+
+	@Override
+	public StudentAccountDTO getUserByLogin(String emailId, String password) throws BusinessServiceException {
+		StudentAccountDTO studentAccountDTOObj = new StudentAccountDTO();
+		try {
+
+			studentAccountDTOObj = studentAccountDAO.getUserByLogin(emailId, password);
+			logger.info("User retrived successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return studentAccountDTOObj;
+	}
+
+	@Override
+	public String insertUserPassword(String password, String emailId) throws BusinessServiceException {
+		String msg = null;
+		try {
+
+			msg = studentAccountDAO.insertUserPassword(password,emailId);
+			logger.info("User password inserted successfully");
+		} catch (DataServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new BusinessServiceException(e.getMessage(), e);
+		}
+		return msg;
 	}
 
 }

@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.biz.StudentAccountService;
 import com.revature.biz.StudentCourseService;
 import com.revature.biz.exception.BusinessServiceException;
 import com.revature.controller.exception.InternalException;
 import com.revature.controller.exception.InvalidInputException;
-import com.revature.model.StudentAccount;
 import com.revature.model.StudentCourse;
 
 @RestController
@@ -23,8 +21,8 @@ public class StudentCourseController {
 
 	  @Autowired
 	  private StudentCourseService studentCourseService;
-	  @Autowired
-	  private StudentAccountService studentAccountService;
+//	  @Autowired
+//	  private StudentAccountService studentAccountService;
 
 	  @RequestMapping("/all/student/courses")
 	  public List<StudentCourse> getActiveStudentCourseController() {

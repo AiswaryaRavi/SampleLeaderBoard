@@ -14,6 +14,9 @@ public interface DataRetriver {
    */
   public <E> List<E> retrieveBySQL(String query) throws DataAccessException;
   public <E> List<E> retrieveBySQLJSON(String query) throws DataAccessException;
+  public <E> Object retrieveBySQLAsObject(String query,Class<?> cls) throws DataAccessException;
+  public  <E> List<E> retrieveBySQLWithResultTransformer(String queryString, Class<?> cls) throws DataAccessException;
+
 
 
 }

@@ -16,17 +16,18 @@ import lombok.Data;
 @Table(name = "student_account")
 
 public class StudentAccount {
-	private StudentAccount(){
-		
+	public StudentAccount() {
+
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@OneToOne
-	@JoinColumn(name = "STUDENT_ID", unique = true,nullable=false)
+	@JoinColumn(name = "STUDENT_ID", unique = true, nullable = false)
 	private Student student;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String username;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String password;
 }

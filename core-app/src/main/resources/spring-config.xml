@@ -20,6 +20,7 @@
 			</props>
 		</property>
 	</bean>
+	
 
 	<!-- TransactionManager configured into the application server -->
 	<bean id="transactionManager"
